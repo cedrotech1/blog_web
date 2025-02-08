@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Menu from "../../components/menu";
 import Footer from "../../components/footer";
+import LoadingSpinner from '../../components/loading'; 
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -14,9 +15,8 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://localhost:2400/PostgreSQL/API/users/get/single/1", {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/users/get/single/1`, {
           headers: {
-            Authorization: "Bearer YOUR_ACCESS_TOKEN",
             Accept: "application/json",
           },
         });
@@ -34,7 +34,6 @@ const LandingPage = () => {
       try {
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}/posts/get/all`, {
           headers: {
-            Authorization: "Bearer YOUR_ACCESS_TOKEN",
             Accept: "application/json",
           },
         });
@@ -58,43 +57,76 @@ const LandingPage = () => {
     <>
       <Menu />
       {loadingUser ? (
-        <h2>Loading...</h2>
+        <div className="text-center" style={{ fontSize: '18px', fontWeight: 'bold', padding: '5cm' }}>
+          <LoadingSpinner />
+        </div>
       ) : error ? (
-        <h2>Error: {error}</h2>
+        <h2 style={{ color: 'red', textAlign: 'center' }}>Error: {error}</h2>
       ) : (
-        <section id="hero" className="hero" style={{ marginTop: "3cm", height: "" }}>
+        <section id="hero" className="hero" style={{ marginTop: "3cm", textAlign: "center" }}>
           <div className="container position-relative">
             <div className="row gy-5" data-aos="fade-in">
-              <div className="col-lg-12 text-center">
-                <h2 style={{ fontSize: "45px", fontFamily: "monospace" }}>
+              <div className="col-lg-12">
+                <h2 style={{ fontSize: "45px", fontFamily: "monospace", color: "#333" }}>
                   Welcome to {user.firstName}'s Quotes
                 </h2>
-                <p style={{ fontFamily: "monospace" }}>{user.slog}</p>
+                <p style={{ fontFamily: "monospace", color: "#666" }}>{user.slog}</p>
               </div>
             </div>
           </div>
         </section>
       )}
 
-      <section id="quotes" className="quotes">
+      <section id="quotes" className="quotes" style={{ padding: "1cm 0.5cm" }}>
         <div className="container" data-aos="fade-up">
-          <h2 style={{ textAlign: "center" }}>Quotes</h2>
-          <div className="row gy-4">
+          <h2 style={{ textAlign: "center", marginBottom: "1cm", fontSize: "30px" }}>Quotes</h2>
+          <div className="row gy-4" style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
             {loadingPosts ? (
-              <p>Loading quotes...</p>
+              <p style={{ textAlign: "center" }}>Loading quotes...</p>
             ) : error ? (
-              <p>Error loading quotes</p>
+              <p style={{ textAlign: "center", color: "red" }}>Error loading quotes</p>
             ) : filteredQuotes.length > 0 ? (
               filteredQuotes.map((quote) => (
-                <div key={quote.id} className="col-12">
-                  <blockquote style={{ fontSize: "18px", fontStyle: "italic", padding: "10px", borderLeft: "4px solid #007bff" }}>
+                <div 
+                  key={quote.id} 
+                  className="col-md-5" 
+                  style={{
+                    backgroundColor: 'white',
+                    padding: '0.3cm',
+                    border: "3px solid #f7d5dc",
+                    borderRadius: '0.1cm',
+                    margin: '0.5cm',
+                    maxWidth: '100%',
+                    wordWrap: 'break-word',
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    cursor: "pointer"
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.boxShadow = "0px 4px 12px rgba(0,0,0,0.2)"}
+                  onMouseOut={(e) => e.currentTarget.style.boxShadow = "none"}
+                >
+                  <blockquote 
+                    style={{ 
+                      fontSize: "18px", 
+                      fontStyle: "italic", 
+                      padding: "10px", 
+                      borderLeft: "4px solid #f7d5dc",
+                      maxHeight: "200px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      display: "block",
+                      whiteSpace: "normal",
+                      color: "#444"
+                    }}
+                  >
                     {quote.postContent}
                   </blockquote>
-                  <p style={{ textAlign: "right", fontWeight: "bold" }}>- {quote.postedBy.firstName} {quote.postedBy.lastName}</p>
+                  <p style={{ textAlign: "right", fontWeight: "bold", color: "#555" }}>
+                    - {quote.postedBy.firstName} {quote.postedBy.lastName}
+                  </p>
                 </div>
               ))
             ) : (
-              <p>No quotes available</p>
+              <p style={{ textAlign: "center" }}>No quotes available</p>
             )}
           </div>
         </div>

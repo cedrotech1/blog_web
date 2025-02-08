@@ -121,7 +121,7 @@ const LandingPage = () => {
       ) : error ? (
         <h2>Error: {error}</h2>
       ) : (
-        <section id="hero" className="hero" style={{marginTop:'1cm'}}>
+        <section id="hero" className="hero">
           <div className="container position-relative">
             <div className="row gy-5" data-aos="fade-in">
               <div className="col-lg-6 d-flex flex-column justify-content-center text-center text-lg-start">

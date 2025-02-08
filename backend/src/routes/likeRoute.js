@@ -8,7 +8,7 @@ import {
  
 
  const likeRoute = express.Router();
- likeRoute.post("/posts/like/:postId",normalUserAuthentication,fileUpload.single("postImage"), likePost);
+ likeRoute.post("/posts/like/:postId",fileUpload.single("postImage"), likePost);
 
 
  export default likeRoute;

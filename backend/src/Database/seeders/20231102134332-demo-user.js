@@ -11,7 +11,7 @@ module.exports = {
     await queryInterface.bulkInsert('Users', [{
       firstName: 'UMWIZA',
       lastName: 'Maureen',
-      profile: 'https://res.cloudinary.com/da12yf0am/image/upload/v1711263166/pmeqjiziugbrath7vkps.jpg',
+      profile: 'https://res.cloudinary.com/da12yf0am/image/upload/v1739037477/fftygp4u6gvi2fgn1wpl.png',
       email: 'maureekalala@gmail.com', 
       phone: '0780000000',
       location: 'Kigali',

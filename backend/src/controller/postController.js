@@ -55,7 +55,7 @@ export const getAllPosts = async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'commentBody', 'postId', 'userIp', 'createdAt'], // Ensure no `userId`
+          attributes: ['id','names', 'commentBody', 'postId', 'userIp', 'createdAt'], // Ensure no `userId`
         },
         {
           model: Likes,
@@ -246,7 +246,7 @@ export const getSinglePost = async (req, res) => {
           },
           {
             model: Comment,
-            attributes: ['id', 'commentBody', 'postId', 'userIp', 'createdAt'], // Ensure no `userId`
+            attributes: ['id','names', 'commentBody', 'postId', 'userIp', 'createdAt'], // Ensure no `userId`
           },
           {
             model: Likes,

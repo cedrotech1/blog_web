@@ -85,8 +85,8 @@ const App = () => {
           {statistics.postsByCategory.length > 0 && (
             <div className="col-xl-12" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
               <div className="row member" style={{ padding: '0.2cm' }}>
-                <h5>Posts by Category</h5>
-                <ul>
+                <h5> <u> Posts by Category</u></h5>
+                <ul style={{listStyle:'none'}}>
                   {statistics.postsByCategory.map((category, index) => (
                     <li key={index}>{category.category || "Uncategorized"}: {category.count}</li>
                   ))}

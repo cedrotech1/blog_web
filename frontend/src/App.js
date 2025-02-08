@@ -15,6 +15,7 @@ import Reset from './pages/landing/reset';
 import Code from './pages/landing/code';
 import ResetPassword from './pages/landing/resetPassword';
 import PostDetail from "./pages/landing/PostDetail";
+import Posts from "./pages/landing/posts";
 
 
 
@@ -22,6 +23,7 @@ import PostDetail from "./pages/landing/PostDetail";
 import Index from "./pages/Admin_1/statistics";
 import Add_post from "./pages/Admin_1/add_post";
 import Post from "./pages/Admin_1/post";
+import Setting from "./pages/Admin_1/user-profile";
 
 
 // emplyoyee_requests
@@ -46,13 +48,15 @@ function App() {
         <Route path="/code/:email" element={<Code />}/>
         <Route path="/resetPassword/:email" element={<ResetPassword />}/>
         <Route path="/post/:id" element={<PostDetail />} />
-        
+        <Route path="/posts" element={<Posts />} />
+        <Route path="*" element={<NotFound />} />
 
      
         {/* admin 001 */}
         <Route path="/dashboard" element={<Index/>} exact={true} />
         <Route path="/view_post" element={<Add_post/>} exact={true} />
         <Route path="/post" element={<Post/>} exact={true} />
+        <Route path="/settings" element={<Setting/>} exact={true} />
   
       </Routes>
     </BrowserRouter>

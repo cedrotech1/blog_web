@@ -35,7 +35,7 @@ const Dashboard = () => {
       setLoading(true);
       const uploadEndpoint = postType === 'video' 
         ? `${process.env.REACT_APP_BASE_URL}/posts/upload` 
-        : `${process.env.REACT_APP_BASE_URL}/API/posts/add`;
+        : `${process.env.REACT_APP_BASE_URL}/posts/add`;
       
       const formDataToSend = new FormData();
       formDataToSend.append('postTitle', formData.title);

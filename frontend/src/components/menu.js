@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Offcanvas, Button, Nav } from 'react-bootstrap';
 import '../css/main2.css';
-import { Link, useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom';
 const LandingPage = () => {
   const [show, setShow] = useState(false);
 
   const sidebarStyles = {
     // backgroundColor: '#b6b5b5',
     borderRadius: '6px',
-    fontFamily:'cursive',
-    fontSize:'20px',
+    fontFamily: 'cursive',
+    fontSize: '20px',
     textDecoration: 'none',
     color: 'black',
   };
@@ -28,24 +28,27 @@ const LandingPage = () => {
                 <img src="/assets/img/images (3).png" className="img-fluid imagex" alt="" style={{ height: '3cm' }} />
               </center>
               <h5 style={{ textAlign: 'center', fontFamily: 'monospace', textTransform: '', fontWeight: 'bold' }}>Visitor</h5>
-              <p style={{ textAlign: 'center', fontFamily: 'monospace',padding:'0.2cm' }}>
-               create account to became ! our customer and access all features of this system !!
+              <p style={{ textAlign: 'center', fontFamily: 'monospace', padding: '0.2cm' }}>
+                create account to became ! our customer and access all features of this system !!
               </p>
             </div>
             <center>
-            <Nav className="flex-column">
-          <Link to="/" style={sidebarStyles}>
-            Home
-          </Link>
-          <Link to="/contact" style={sidebarStyles}>
-            Contact
-          </Link>
-          <Link to="/quates" style={sidebarStyles}>
-          quates
-          </Link>
-        </Nav>
+              <Nav className="flex-column">
+                <Link to="/" style={sidebarStyles}>
+                  Home
+                </Link>
+                <Link to="../contact" style={sidebarStyles}>
+                  Contact
+                </Link>
+                <Link to="../posts" style={sidebarStyles}>
+                  posts
+                </Link>
+                <Link to="../quates" style={sidebarStyles}>
+                  quates
+                </Link>
+              </Nav>
               <div className="d-flex justify-content-center">
-                <a href="./login" className="btn-get-started" style={sidebarStyles}>
+                <a href="../login" className="btn-get-started" style={sidebarStyles}>
                   Login
                 </a>
               </div>
@@ -57,7 +60,7 @@ const LandingPage = () => {
         id="header"
         className="header d-flex align-items-center"
         style={{
-          marginBottom:'0cm',
+          marginBottom: '0cm',
           position: 'fixed',
           top: 0,
           left: 0,
@@ -70,34 +73,37 @@ const LandingPage = () => {
         <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
           <a href="/" className="logo d-flex align-items-center">
             {/* <img src="assets/img/LOGO.png" className="img-fluid mylogo" alt="" data-aos="zoom-out" data-aos-delay="100" style={{height:'3cm'}}/> */}
-            <h1 style={{ 
-  fontSize: '40px', 
-  fontWeight: 'bold', 
-  fontFamily: "'Poppins', sans-serif", 
-  letterSpacing: '2px', 
-  textTransform: 'uppercase' 
-}}>
-  <span style={{ color: '#f7d5dc' }}>Moureen</span> 
-  <span style={{ color: '#8f6d74' }}> Page</span>
-</h1>
+            <h1 style={{
+              fontSize: '40px',
+              fontWeight: 'bold',
+              fontFamily: "'Poppins', sans-serif",
+              letterSpacing: '2px',
+              // textTransform: 'uppercase' 
+            }}>
+              <span style={{ color: '#f7d5dc' }}>Visit Me</span>
+              <span style={{ color: '#8f6d74' }}> Daily.</span>
+            </h1>
 
 
-            </a>
+          </a>
           <nav id="navbar" className="navbar">
             <ul>
               <li>
                 <a href="/" style={sidebarStyles}>Home</a>
               </li>
               <li>
-                <a href="contact" style={sidebarStyles}>Contact</a>
+                <a href="../contact" style={sidebarStyles}>Contact</a>
               </li>
               <li>
-                <a href="quates" style={sidebarStyles}>quates</a>
+                <a href="../posts" style={sidebarStyles}>posts</a>
               </li>
               <li>
-                <a href="login" style={sidebarStyles}>Login</a>
+                <a href="../quates" style={sidebarStyles}>quates</a>
               </li>
-              
+              <li>
+                <a href="../login" style={sidebarStyles}>Login</a>
+              </li>
+
             </ul>
           </nav>
 

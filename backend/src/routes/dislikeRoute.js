@@ -6,5 +6,5 @@
     } from "../controller/unlikeController";
 
     const dislikeRoute = express.Router();
-    dislikeRoute.post("/posts/dislike/:postId",normalUserAuthentication,fileUpload.single("postImage"),disLikePost);
+    dislikeRoute.post("/posts/dislike/:postId",fileUpload.single("postImage"),disLikePost);
     export default dislikeRoute;
