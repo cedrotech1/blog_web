@@ -45,8 +45,8 @@ const options = {
     servers: [
       {
         
-        // url: "https://blogbeckend.onrender.com/",
-        url: "http://localhost:2400/",
+        url: "https://blog-i60n.onrender.com/",
+        // url: "http://localhost:2400/",
       },
     ],
     security: [
